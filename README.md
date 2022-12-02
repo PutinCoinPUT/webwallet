@@ -4,7 +4,7 @@
 
 <img src="assets/images/logo-put.png">
 
-Acess https://puntincoin.info
+Acess https://putincoin.net
 
 Make login or register new account
 
@@ -14,8 +14,9 @@ Layout custom and responsive to mobile screen.
 
 Thanks:
 
-@PutinCoinPUT
+<a href="https://github.com/PutinCoinPUT">PutinCoin DEV</a>
 
 Collaborator:
 
-@bdcashdev
+<a href="https://github.com/bdcashdev">BdcashProtocol DEV</a>
+
