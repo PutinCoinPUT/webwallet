@@ -44,15 +44,9 @@
             <span style="right: 10px;
     top: -20px;" onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
-        <center>
-            <p id="newaddressmsg"></p>
-        </center>
-        <form action="index.php" method="POST" id="newaddressform">
-            <input type="hidden" name="action" value="new_address" />
-            <button type="submit" class="btn-default"><?php echo $lang['WALLET_NEWADDRESS']; ?></button>
-        </form>
+
         <p><strong><?php echo $lang['WALLET_USERADDRESSES']; ?></strong></p>
-        <table class="table table-bordered table-striped" id="alist">
+        <table class="table table-bordered table-striped tab">
             <thead>
                 <tr>
                     <th><?php echo $lang['WALLET_ADDRESS']; ?>:</th>

@@ -1,8 +1,11 @@
-<?php if (!defined("IN_WALLET")) { die("Auth Error!"); } ?>
+<?php if (!defined("IN_WALLET")) {
+	die("Auth Error!");
+} ?>
 <?php
 //To enable developer mode (no need for an RPC server, replace this file with the snipet at https://gist.github.com/d3e148deb5969c0e4b60 
 
-class Client {
+class Client
+{
 	private $uri;
 	private $jsonrpc;
 
@@ -14,13 +17,13 @@ class Client {
 
 	function getBalance($user_session)
 	{
-		return $this->jsonrpc->getbalance("zelles(" . $user_session . ")", 6);
+		return $this->jsonrpc->getbalance("zelles(" . $user_session . ")", 1);
 		//return 21;
 	}
 
-       function getAddress($user_session)
-        {
-                return $this->jsonrpc->getaccountaddress("zelles(" . $user_session . ")");
+	function getAddress($user_session)
+	{
+		return $this->jsonrpc->getaccountaddress("zelles(" . $user_session . ")");
 	}
 
 	function getAddressList($user_session)
@@ -31,7 +34,7 @@ class Client {
 
 	function getTransactionList($user_session)
 	{
-		return $this->jsonrpc->listtransactions("zelles(" . $user_session . ")", 10);
+		return $this->jsonrpc->listtransactions("zelles(" . $user_session . ")", 3);
 	}
 
 	function getNewAddress($user_session)
@@ -42,7 +45,7 @@ class Client {
 
 	function withdraw($user_session, $address, $amount)
 	{
-		return $this->jsonrpc->sendfrom("zelles(" . $user_session . ")", $address, (float)$amount, 6);
+		return $this->jsonrpc->sendfrom("zelles(" . $user_session . ")", $address, (float)$amount, 2);
 		//return "ok wow";
 	}
 }

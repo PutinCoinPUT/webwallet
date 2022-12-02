@@ -29,7 +29,7 @@ if (!empty($_SESSION['user_session'])) {
                     $json['message'] = "A new address was added to your wallet";
                     $json['balance'] = $client->getBalance($user_session) - $fee;
                     $json['addressList'] = $client->getAddressList($user_session);
-                    $json['Myaddress'] = $client->getAddress($info['username']);
+                    $json['Myaddress'] = $client->getAddress($user_session);
                     $json['transactionList'] = $client->getTransactionList($user_session);
                     echo json_encode($json);
                     exit;
@@ -54,7 +54,7 @@ if (!empty($_SESSION['user_session'])) {
                         $json['message'] = "Withdrawal successful";
                         $json['balance'] = $client->getBalance($user_session);
                         $json['addressList'] = $client->getAddressList($user_session);
-                        $json['Myaddress'] = $client->getAddress($info['username']);
+                        $json['Myaddress'] = $client->getAddress($user_session);
                         $json['transactionList'] = $client->getTransactionList($user_session);
                     }
                     echo json_encode($json);
@@ -157,7 +157,7 @@ if (!empty($_SESSION['user_session'])) {
             }
         }
         $addressList = $client->getAddressList($user_session);
-        $Myaddress = $client->getAddress($info['username']);
+        $Myaddress = $client->getAddress($user_session);
         $transactionList = $client->getTransactionList($user_session);
         include("view/header.php");
         include("view/wallet.php");

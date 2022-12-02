@@ -27,11 +27,11 @@
                 <center>
                     <h5><?php echo $lang['WALLET_BALANCE']; ?></h5>
                     <h2><strong id="balance"><?php echo satoshitize($balance); ?></strong></h2>
-                    <img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $Myaddress ?>" alt="QR Code" style="width:200px;height:200px;border:0;">
-                    <h6><?php echo $Myaddress ?></h6>
+                    <div class="img-fluid"><img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $Myaddress ?>" alt="QR Code" style="width:100px;height:100px;border:0;" class="img-responsive img-fluid"></div>
+                    <div class="text-center" style="font-size: 9px;"><input value="<?php echo $Myaddress ?>" class="form-control" id="address-user" disabled></div>
                 </center>
                 <div class="col-sm-12 text-center">
-                    <a class="btn btn-default" onclick="document.getElementById('id05').style.display='block'" style="width:auto;"> New </a>
+                    <button onclick="copiarTexto()">Copy Address</button>
                     <a class="btn btn-default" onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Withdraw</a>
                 </div>
                 <br />
@@ -43,7 +43,7 @@
                 <p><?php echo $lang['WALLET_LAST10']; ?></p>
                 <h5 class="alert alert-warning text-center">Deposits take 6 confirmations to show up here</h5>
                 <div class="table-responsive">
-                    <table class="table table-responsive  tab" id="txlist">
+                    <table class="table table-responsive">
                         <thead>
                             <tr>
                                 <th nowrap><?php echo $lang['WALLET_DATE']; ?></th>
@@ -83,11 +83,7 @@
 
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.tab').DataTable();
-    });
-</script>
+
 <?php include('view/includes.php'); ?>
 
 <div id="wdform" name="wdform" style="display:none">
@@ -190,28 +186,42 @@
             });
             e.preventDefault();
         });
-
-        function updateTables(json) {
-            $("#balance").text(json.balance.toFixed(8));
-            $("#alist tbody tr").remove();
-            for (var i = json.addressList.length - 1; i >= 0; i--) {
-                $("#alist tbody").prepend("<tr><td>" + json.addressList[i] + "</td></tr>");
-            }
-            $("#txlist tbody tr").remove();
-            for (var i = json.transactionList.length - 1; i >= 0; i--) {
-                var tx_type = '<b style="color: #01DF01;">Received</b>';
-                if (json.transactionList[i]['category'] == "send") {
-                    tx_type = '<b style="color: #FF0000;">Sent</b>';
+        /*
+                function updateTables(json) {
+                    $("#balance").text(json.balance.toFixed(8));
+                    $("#alist tbody tr").remove();
+                    for (var i = json.addressList.length - 1; i >= 0; i--) {
+                        $("#alist tbody").prepend("<tr><td>" + json.addressList[i] + "</td></tr>");
+                    }
+                    $("#txlist tbody tr").remove();
+                    for (var i = json.transactionList.length - 1; i >= 0; i--) {
+                        var tx_type = '<b style="color: #01DF01;">Received</b>';
+                        if (json.transactionList[i]['category'] == "send") {
+                            tx_type = '<b style="color: #FF0000;">Sent</b>';
+                        }
+                        $("#txlist tbody").prepend('<tr> \
+                       <td>' + moment(json.transactionList[i]['time'], "X").format('l hh:mm a') + '</td> \
+                       <td>' + json.transactionList[i]['address'] + '</td> \
+                       <td>' + tx_type + '</td> \
+                       <td>' + Math.abs(json.transactionList[i]['amount']) + '</td> \
+                       <td>' + json.transactionList[i]['fee'] + '</td> \
+                       <td>' + json.transactionList[i]['confirmations'] + '</td> \
+                       <td><a href="' + blockchain_url.replace("%s", json.transactionList[i]['txid']) + '" target="_blank">Info</a></td> \
+                    </tr>');
+                    }
                 }
-                $("#txlist tbody").prepend('<tr> \
-               <td>' + moment(json.transactionList[i]['time'], "X").format('l hh:mm a') + '</td> \
-               <td>' + json.transactionList[i]['address'] + '</td> \
-               <td>' + tx_type + '</td> \
-               <td>' + Math.abs(json.transactionList[i]['amount']) + '</td> \
-               <td>' + json.transactionList[i]['fee'] + '</td> \
-               <td>' + json.transactionList[i]['confirmations'] + '</td> \
-               <td><a href="' + blockchain_url.replace("%s", json.transactionList[i]['txid']) + '" target="_blank">Info</a></td> \
-            </tr>');
-            }
+                */
+        function copiarTexto() {
+            /* Selecionamos por ID o nosso input */
+            var textoCopiado = document.getElementById("address-user");
+
+            /* Deixamos o texto selecionado (em azul) */
+            textoCopiado.select();
+            textoCopiado.setSelectionRange(0, 99999); /* Para mobile */
+
+            /* Copia o texto que está selecionado */
+            document.execCommand("copy");
+
+            alert("Has Copied: " + textoCopiado.value);
         }
     </script>
