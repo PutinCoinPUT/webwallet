@@ -65,7 +65,7 @@
     </script>
     <!-- End Bootstrap include stuff-->
     <title><?= $fullname ?> Webwallet</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico?v=<?php rand(0001, 9999999999) ?>" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico?v=<?php rand(0001, 9999999999); ?>" />
 </head>
 
 <body>
@@ -87,24 +87,23 @@
                     <li class="dropdown">
 
                         <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Language<span class="caret"></span>
+                            Language&nbsp; <span class="caret"></span>
                         </button>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                             <div id="google_translate_element" class="boxTradutor"></div>
-                            <li class="col-sm-12"><a href="javascript:trocarIdioma('en')"><img src="assets/images/en.png" width="20"> English</a></li>
-                            <li class="col-sm-12"><a href="javascript:trocarIdioma('ru')"><img src="assets/images/ru.png" width="20"> Русский</a></li>
-                            <li class="col-sm-12"><a href="javascript:trocarIdioma('de')"><img src="assets/images/de.png" width="20"> Deutsch</a></li>
-                            <li class="col-sm-12"><a href="javascript:trocarIdioma('es')"><img src="assets/images/es.png" width="20"> Español</a></li>
-                            <li class="col-sm-12"><a href="javascript:trocarIdioma('pt')"><img src="assets/images/pt.png" width="20"> Português</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('en')"><img src="assets/images/en.png" width="20" style="margin-right:10px;">English</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('ru')"><img src="assets/images/ru.png" width="20" style="margin-right:10px;">Русский</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('de')"><img src="assets/images/de.png" width="20" style="margin-right:10px;">Deutsch</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('es')"><img src="assets/images/es.png" width="20" style="margin-right:10px;">Español</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('pt')"><img src="assets/images/pt.png" width="20" style="margin-right:10px;">Português</a></li>
 
                         </ul>
                     </li>
                     <li class="dropdown">
 
                         <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Useful Links
-                            <span class="caret"></span>
+                            Useful Links&nbsp; <span class="caret"></span>
                         </button>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -117,9 +116,14 @@
 
                         </ul>
                     </li>
-                    <? if (isset($_SESSION['user_session'])) { ?>
+                    <?php if (isset($_SESSION['user_session'])) { ?>
                         <li>
-                            <div class="dropdown"> <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Wallet Settings <span class="caret"></span></button>
+                            <div class="dropdown">
+							
+							<button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Wallet Settings&nbsp; <span class="caret"></span>
+							</button>
+
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li><?php if ($admin) {
                                         ?>
@@ -129,7 +133,7 @@
                                         ?>
                                     </li>
                                     <li>
-                                        <a onclick="document.getElementById('id06').style.display='block'" style="width:auto;">Security Wallet</a>
+                                        <a onclick="document.getElementById('id06').style.display='block'" style="width:auto;">Wallet Security</a>
                                     </li>
                                     <li>
 
