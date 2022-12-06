@@ -15,7 +15,7 @@
                 <a href="/" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="256" data-original-width="256" src="logo.png" /></a>
             </div>
             <div class="text-center mb-2">
-                Simple, fast and secure web wallet, is it security? it's PUTincoin <br /><br /><br />
+               <br />Simple, fast and secure web wallet for PUTincoin!<br /><br /><br />
             </div>
 
             <button class="btn btn-default" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login Account</button>
