@@ -34,7 +34,7 @@ class Client
 
 	function getTransactionList($user_session)
 	{
-		return $this->jsonrpc->listtransactions("zelles(" . $user_session . ")", 3);
+		return $this->jsonrpc->listtransactions("zelles(" . $user_session . ")", 10);
 	}
 
 	function getNewAddress($user_session)
