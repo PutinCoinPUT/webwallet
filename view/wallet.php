@@ -39,7 +39,7 @@
 
 
 
-            <div class="col-sm-8 text-center" style="border: 2px solid #000000; height: 400px;">
+            <div class="col-sm-8 text-center" style="border: 2px solid #000000; float:auto; height: 400px;">
                 <p><?php echo $lang['WALLET_LAST10']; ?></p>
                 <h5 class="alert alert-warning text-center">Deposits take 6 confirmations to show up here</h5>
                 <div class="table-responsive">
