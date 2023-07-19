@@ -127,7 +127,7 @@
             }
          },
          error: function(jqXHR, textStatus, errorThrown) {
-            //ugh, gtfo    
+            //ugh, gtfo
          }
       });
       e.preventDefault();
@@ -154,7 +154,7 @@
             }
          },
          error: function(jqXHR, textStatus, errorThrown) {
-            //ugh, gtfo    
+            //ugh, gtfo
          }
       });
       e.preventDefault();
@@ -180,7 +180,7 @@
             }
          },
          error: function(jqXHR, textStatus, errorThrown) {
-            //ugh, gtfo    
+            //ugh, gtfo
          }
       });
       e.preventDefault();

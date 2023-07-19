@@ -20,44 +20,64 @@
                     echo $disauth;
                 }
                 ?>
-                <br /><br />
+                <br />
+		<button onclick="refreshPage()">Refresh display</button>
+		<br />
         </div>
         <div class="col-sm-12 text-center">
-            <div class="col-sm-4 text-center" style="border: 2px solid #000000; height: 400px;">
+            <div class="col-sm-4 text-center" style="border: 2px solid #000000; height: 440px;">
                 <center>
                     <h5><?php echo $lang['WALLET_BALANCE']; ?></h5>
+		    <h5 class="alert alert-warning text-center">Deposits take 1 confirmation to show up here!</h5>
                     <h2><strong id="balance"><?php echo satoshitize($balance); ?></strong></h2>
                     <div class="img-fluid"><img src="https://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $Myaddress ?>" alt="QR Code" style="width:100px;height:100px;border:0;" class="img-responsive img-fluid"></div>
-                    <div class="text-center" style="font-size: 9px;"><input value="<?php echo $Myaddress ?>" class="form-control" id="address-user" disabled></div>
+                    <div id="address-user" class="text-center" style="font-size: 11px;"><?php echo $Myaddress ?></div>
                 </center>
-                <div class="col-sm-12 text-center">
-                    <button onclick="copiarTexto()">Copy Address</button>
-                    <a class="btn btn-default" onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Withdraw</a>
+                <div class="col-sm-12 text-center" style="margin-top: 10px;">
+                    <button onclick="copyPutaddress()">Copy Address</button>
+                    <a class="btn btn-default" onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Transfer PUTinCoins</a>
                 </div>
                 <br />
             </div>
 
-
-
-            <div class="col-sm-8 text-center" style="border: 2px solid #000000; float:auto; height: 400px; overflow-y:auto;">
+            <div class="col-sm-8 text-center" style="border: 2px solid #000000; float: auto; height: 440px; overflow-y: auto; font-size: 10px;">
+		<script type="text/javascript">
+		$(function(){
+    			$(".wmd-view-topscroll").scroll(function(){
+        		$(".wmd-view")
+            			.scrollLeft($(".wmd-view-topscroll").scrollLeft());
+    			});
+    			$(".wmd-view").scroll(function(){
+        		$(".wmd-view-topscroll")
+            			.scrollLeft($(".wmd-view").scrollLeft());
+    			});
+		});
+		</script>
+		<p>&nbsp;</p>
                 <p><?php echo $lang['WALLET_LAST10']; ?></p>
-                <h5 class="alert alert-warning text-center">Deposits take 6 confirmations to show up here</h5>
-                <div class="table-responsive">
+		<div class="wmd-view-topscroll">
+    			<div class="scroll-div1" style="display: none;">
+    			</div>
+		</div>
+                <div class="table-responsive wmd-view">
+		    <div class="scroll-div2">
                     <table class="table table-responsive">
                         <thead>
                             <tr>
-                                <th nowrap><?php echo $lang['WALLET_DATE']; ?></th>
-                                <th nowrap><?php echo $lang['WALLET_ADDRESS']; ?></th>
-                                <th nowrap><?php echo $lang['WALLET_TYPE']; ?></th>
-                                <th nowrap><?php echo $lang['WALLET_AMOUNT']; ?></th>
-                                <th nowrap><?php echo $lang['WALLET_FEE']; ?></th>
-                                <th nowrap><?php echo $lang['WALLET_CONFS']; ?></th>
-                                <th nowrap><?php echo $lang['WALLET_INFO']; ?></th>
+                                <th style="text-align: center;" nowrap><?php echo $lang['WALLET_DATE']; ?></th>
+                                <th style="text-align: center;" nowrap><?php echo $lang['WALLET_ADDRESS']; ?></th>
+                                <th style="text-align: center;" nowrap><?php echo $lang['WALLET_TYPE']; ?></th>
+                                <th style="text-align: center;" nowrap><?php echo $lang['WALLET_AMOUNT']; ?></th>
+                                <!-- <th style="text-align: center;" nowrap><?php echo $lang['WALLET_FEE']; ?></th> -->
+                                <th style="text-align: center;" nowrap><?php echo $lang['WALLET_CONFS']; ?></th>
+                                <th style="text-align: center;" nowrap><?php echo $lang['WALLET_INFO']; ?></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $bold_txxs = "";
+                            $key_values = array_column($transactionList, 'time');
+                            array_multisort($key_values, SORT_DESC, $transactionList);
                             foreach ($transactionList as $transaction) {
                                 if ($transaction['category'] == "send") {
                                     $tx_type = '<b style="color: #FF0000;">Sent</b>';
@@ -65,18 +85,19 @@
                                     $tx_type = '<b style="color: #01DF01;">Received</b>';
                                 }
                                 echo '<tr>
-               <td>' . date('n/j/Y h:i a', $transaction['time']) . '</td>
+               <td>' . date('d.m.Y - H:i', $transaction['time']) . '</td>
                <td>' . $transaction['address'] . '</td>
                <td>' . $tx_type . '</td>
                <td>' . abs($transaction['amount']) . '</td>
-               <td>' . $transaction['fee'] . '</td>
+               <!-- <td>' . $transaction['fee'] . '</td> -->
                <td>' . $transaction['confirmations'] . '</td>
-               <td><a href="' . $blockchain_url, $transaction['txid'] . '" target="_blank">Info</a></td>
+               <td><a href="' . $blockchain_url, $transaction['txid'] . '" target="_blank">More..</a></td>
             </tr>';
                             }
                             ?>
                         </tbody>
                     </table>
+		    </div>
                 </div>
             </div>
         </div>
@@ -211,17 +232,4 @@
                     }
                 }
                 */
-        function copiarTexto() {
-            /* Selecionamos por ID o nosso input */
-            var textoCopiado = document.getElementById("address-user");
-
-            /* Deixamos o texto selecionado (em azul) */
-            textoCopiado.select();
-            textoCopiado.setSelectionRange(0, 99999); /* Para mobile */
-
-            /* Copia o texto que está selecionado */
-            document.execCommand("copy");
-
-            alert("Has Copied: " + textoCopiado.value);
-        }
     </script>

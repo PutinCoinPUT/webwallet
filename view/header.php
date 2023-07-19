@@ -23,12 +23,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://putincoin.net/assets/cssset/style.css" rel="stylesheet">
     <link href="assets/css/wallet.css" rel="stylesheet">
     <link href="assets/css/languages.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
+
+    <script type="text/javascript">
+        function refreshPage() {
+                location.reload();
+        }
+
+	function copyPutaddress() {
+  		// get the container
+  		const element = document.querySelector('#address-user');
+  		// Create a fake `textarea` and set the contents to the text
+  		// you want to copy
+  		const storage = document.createElement('textarea');
+  		storage.value = element.innerHTML;
+  		element.appendChild(storage);
+
+ 		// Copy the text in the fake `textarea` and remove the `textarea`
+		storage.select();
+		storage.setSelectionRange(0, 99999);
+		document.execCommand('copy');
+		element.removeChild(storage);
+		alert("Address copied: " + storage.value);
+	}
+    </script>
 
     <script>
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,8 +93,8 @@
 
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top" style="margin-top: 35px">
+        <div class="container-fluid" style="padding-bottom: 5px">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -79,11 +102,46 @@
             </button>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php"><img src="assets/images/logo-put.png" height="40" width="230" class="img-fluid"></a>
+                <a class="navbar-brand" href="index.php"><img src="assets/images/logo-put.png" height="35" width="200" class="img-fluid"></a>
             </div>
 
             <div class="collapse navbar-collapse" id="myNavbar">
-                <div class="nav navbar-nav navbar-right">
+                <div class="nav navbar-nav navbar-right" style="margin-top: 5px;">
+                    <?php if (!isset($_SESSION['user_session'])) { ?>
+                    <li class="dropdown">
+
+                        <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Language&nbsp; <span class="caret"></span>
+                        </button>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <div id="google_translate_element" class="boxTradutor"></div>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('en')"><img src="assets/images/en.png" width="20" style="margin-right:10px;">English</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('ru')"><img src="assets/images/ru.png" width="20" style="margin-right:10px;">Русский</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('de')"><img src="assets/images/de.png" width="20" style="margin-right:10px;">Deutsch</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('es')"><img src="assets/images/es.png" width="20" style="margin-right:10px;">Español</a></li>
+                            <li class="col-sm-12"><a href="javascript:trocarIdioma('pt')"><img src="assets/images/pt.png" width="20" style="margin-right:10px;">Português</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown" style="margin-right: 15px;">
+
+                        <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Links&nbsp; <span class="caret"></span>
+                        </button>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="https://putincoin.org/" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i> Website</a></li>
+                            <li><a href="https://putincoin.info" target="_blank"><i class="fa fa-search" aria-hidden="true"></i> Explorer</a>
+                            <li><a href="https://t.me/putincoinput" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i> Telegram</a>
+                            <li><a href="https://twitter.com/coin_put" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+                            <li><a href="https://www.minds.com/groups/profile/1349731180802478092/feed?referrer=therealputincoin" target="_blank"><i class="fa fa-map-pin" aria-hidden="true"></i> Minds</li>
+                            <li><a href="https://coinmarketcap.com/currencies/putincoin/" target="_blank"><i class="fa fa-line-chart" aria-hidden="true"></i> Market index</a></li>
+
+                        </ul>
+                    </li>
+                    <?php } ?>
+                    <?php if (isset($_SESSION['user_session'])) { ?>
                     <li class="dropdown">
 
                         <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -103,7 +161,7 @@
                     <li class="dropdown">
 
                         <button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Useful Links&nbsp; <span class="caret"></span>
+                            Links&nbsp; <span class="caret"></span>
                         </button>
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -116,13 +174,12 @@
 
                         </ul>
                     </li>
-                    <?php if (isset($_SESSION['user_session'])) { ?>
                         <li>
                             <div class="dropdown">
-							
-							<button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								Wallet Settings&nbsp; <span class="caret"></span>
-							</button>
+
+				<button class="btn btn-default navbar-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Settings&nbsp; <span class="caret"></span>
+				</button>
 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                     <li><?php if ($admin) {
@@ -142,7 +199,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li>
+                        <li class="logoutbutton">
                             <form action="index.php" method="POST">
                                 <form>
                                     <input type="hidden" name="action" value="logout" />

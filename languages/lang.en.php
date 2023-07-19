@@ -40,11 +40,11 @@ $lang['WALLET_SENDCONF'] = 'Send';
 $lang['WALLET_USERADDRESSES'] = 'Your addresses:';
 $lang['WALLET_NEWADDRESS'] = 'Get a new address';
 $lang['WALLET_QRCODE'] = 'QR Code';
-$lang['WALLET_LAST10'] = 'Last 10 transactions:';
+$lang['WALLET_LAST10'] = 'All transactions:';
 $lang['WALLET_DATE'] = 'Date';
 $lang['WALLET_TYPE'] = 'Type';
 $lang['WALLET_FEE'] = 'Fee';
 $lang['WALLET_CONFS'] = 'Confs';
-$lang['WALLET_INFO'] = 'Info';
+$lang['WALLET_INFO'] = 'Details';
 
 ?>

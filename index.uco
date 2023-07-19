@@ -1,0 +1,219 @@
+
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="PUTinCoin - a cryptocurrency for RUSSIA!">
+        <meta name="author" content="PUTinCoin">
+        
+        <!-- Bootstrap include stuff -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/wallet.css" rel="stylesheet">
+	<link href="assets/css/languages.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- End Bootstrap include stuff-->
+        <title>PUTinCoin Webwallet</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
+    </head>
+    
+    
+    <body>
+        <div style='display:none' id='sbbhscc'></div>
+          <script type="text/javascript">
+            var sbbvscc='';
+            var sbbgscc='';
+            function genPid() {return String.fromCharCode(73)+String.fromCharCode(70) ; };
+          </script>
+
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+        <nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+
+			</div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="jumbotron" style="background-color:#ffffff; font-family: 'Gill Sans', sans-serif;">
+            <div class="container">
+
+              <center> <h1>Welcome to PUTinCoin wallet!</h1> 
+<br />
+
+</center>
+
+
+
+<br />
+
+
+<style>
+/* Full-width input fields */
+
+.modal p{text-align:center;width:80%}
+input[type=text], input[type=password],input[type=email],input[type=submit] {
+    width: 360px;
+    padding: 12px 20px;
+    margin: 0 auto 20px auto;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+form{width: 360px;margin: auto;}
+/* Set a style for all buttons */
+button {
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+    margin:0 0 20px 0;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 24px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content { border-radius: 8px;position: relative;
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 450px; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+
+<div class="separator" style="clear: both; text-align: center;">
+<a href="/" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="256" data-original-width="256" src="logo.png" /></a></div>
+<div style="text-align: center;">
+<br />
+<center> <h2 style="font-family: 'Gill Sans', sans-serif;">PUTinCoin - Webwallet is being updated!</h2></center>
+<center> <h3 style="font-family: 'Gill Sans', sans-serif;">It will soon be back online - please be patient!</h3></center>
+<center> <h4 style="font-family: 'Gill Sans', sans-serif;">As soon as the update has been finished, we will announce it in our Telegram group: <a href="https://t.me/putincoinput" target="_blank">https://t.me/putincoinput</a></h4></center>
+<br /><br /><br />
+</div>
+
+               <div id="id01" class="modal">
+  <div  class="modal-content animate" id="loginform" name="loginform" style="display: block;"><div class="imgcontainer">
+      <img src="/logo.png" alt="Avatar" class="avatar">
+    </div>
+
+</div>
+  
+</div>
+
+    </body>
+<b><center>
+<div class="col-sm-6" style="font-family: 'Gill Sans', sans-serif;">
+                    &copy; 2017 - 2023 <a target="_blank" href="https://www.putincoin.org/" title="PUTinCoin">PUTinCoin</a>  All Rights Reserved.
+                </div>
+<p style="font-face: Arial">Powered by: <a href="https://www.putincoin.org">PUTinCoin - PUT</a></p>
+</center></b>
+</html>
